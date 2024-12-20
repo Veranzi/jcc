@@ -1,7 +1,7 @@
 (function ($) {
     "use strict";
     
-    // loader
+    // Loader
     var loader = function () {
         setTimeout(function () {
             if ($('#loader').length > 0) {
@@ -24,7 +24,6 @@
         return false;
     });
     
-    
     // Sticky Navbar
     $(window).scroll(function () {
         if ($(this).scrollTop() > 0) {
@@ -33,7 +32,6 @@
             $('.navbar').removeClass('nav-sticky');
         }
     });
-    
     
     // Dropdown on mouse hover
     $(document).ready(function () {
@@ -50,9 +48,13 @@
         }
         toggleNavbarMethod();
         $(window).resize(toggleNavbarMethod);
+
+        // Remove .html extension from all links
+        document.querySelectorAll('a[href$=".html"]').forEach(link => {
+            link.href = link.href.replace('.html', '');
+        });
     });
 
-    
     // Main carousel
     $(".carousel .owl-carousel").owlCarousel({
         autoplay: true,
@@ -69,7 +71,6 @@
         ]
     });
     
-    
     // Modal Video
     $(document).ready(function () {
         var $videoSrc;
@@ -80,13 +81,12 @@
 
         $('#videoModal').on('shown.bs.modal', function (e) {
             $("#video").attr('src', $videoSrc + "?autoplay=1&amp;modestbranding=1&amp;showinfo=0");
-        })
+        });
 
         $('#videoModal').on('hide.bs.modal', function (e) {
             $("#video").attr('src', $videoSrc);
-        })
+        });
     });
-    
     
     // Causes carousel
     $(".causes-carousel").owlCarousel({
@@ -113,7 +113,6 @@
         }
     });
     
-    
     // Causes progress
     $('.causes-progress').waypoint(function () {
         $('.progress .progress-bar').each(function () {
@@ -121,13 +120,11 @@
         });
     }, {offset: '80%'});
     
-    
     // Facts counter
     $('[data-toggle="counter-up"]').counterUp({
         delay: 10,
         time: 2000
     });
-
 
     // Testimonials carousel
     $(".testimonials-carousel").owlCarousel({
@@ -151,7 +148,6 @@
         }
     });
     
-    
     // Related post carousel
     $(".related-slider").owlCarousel({
         autoplay: true,
@@ -174,6 +170,5 @@
             }
         }
     });
-    
-})(jQuery);
 
+})(jQuery);
