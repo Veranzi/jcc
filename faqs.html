@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FAQ Accordion</title>
+    <!-- Link to the external CSS file -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+/* Reset default margins and paddings for all elements */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style for the main FAQ container */
+.faq-container {
+  max-width: 800px; /* Limit the width for better readability */
+  margin: 50px auto; /* Center the container and add vertical spacing */
+  padding: 20px;
+  font-family: 'Arial, sans-serif';
+  color: #333; /* Base text color */
+}
+
+/* Style for the main title */
+.faq-container h1 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #2c3e50; /* Dark blue color for the title */
+}
+
+/* Style for each FAQ item */
+.faq-item {
+  border-bottom: 1px solid #ddd; /* Light gray border between items */
+  overflow: hidden; /* Hide overflowing content */
+}
+
+/* Style for the question buttons */
+.faq-question {
+  background-color: #ecf0f1; /* Light gray background */
+  width: 100%;
+  padding: 20px;
+  text-align: left;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s ease; /* Smooth background transition on hover */
+}
+
+/* Hover effect for question buttons */
+.faq-question:hover {
+  background-color: #d0d7de; /* Slightly darker gray on hover */
+}
+
+/* Style for the arrow icon */
+.faq-question .arrow {
+  position: absolute;
+  right: 20px;
+  transition: transform 0.3s ease; /* Smooth rotation transition */
+}
+
+/* Rotate the arrow when the question is active (expanded) */
+.faq-question.active .arrow {
+  transform: rotate(180deg); /* Rotate arrow 180 degrees */
+}
+
+/* Style for the answer sections */
+.faq-answer {
+  max-height: 0; /* Initially hide the answer */
+  overflow: hidden;
+  transition: max-height 0.3s ease; /* Smooth transition for expanding */
+  background-color: #fff; /* White background for answers */
+}
+
+/* Style for the answer text */
+.faq-answer p {
+  padding: 20px;
+  font-size: 16px;
+  line-height: 1.5; /* Increase line height for better readability */
+  color: #555; /* Slightly lighter text color for answers */
+}
+
+/* Harmonious color palette for the body background */
+body {
+  background-color: #f5f7fa; /* Very light blue-gray background */
+}
+    </style>
+ <!-- Top Bar Start -->
+        <div class="top-bar d-none d-md-block">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="top-bar-left">
+                            <div class="text">
+                                <i class="fa fa-phone-alt"></i>
+                                <p>+254 740 875 071</p>
+                            </div>
+                            <div class="text">
+                                <i class="fa fa-envelope"></i>
+                                <p>jerusalemu.56@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="top-bar-right">
+                            <div class="social">
+                                <a href=""><i class="fab fa-twitter"></i></a>
+                                <a href=""><i class="fab fa-facebook-f"></i></a>
+                                <a target="_blank" href="https://www.youtube.com/@JERUSALEMCHURCHKAWANGWARE56"><i class="fab fa-youtube"></i></a>
+                                <a href=""><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Top Bar End -->
+
+        <!-- Nav Bar Start -->
+        <div class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a href="index.html" class="navbar-brand">JCC</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto">
+                        <a href="/index" class="nav-item nav-link active">Home</a>
+                        <a href="/about" class="nav-item nav-link">About</a>
+                        <a href="/causes" class="nav-item nav-link">Ministries</a>
+                        <a href="/event" class="nav-item nav-link">Events</a>
+                        <a href="/blog" class="nav-item nav-link">Blog</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
+                            <div class="dropdown-menu">
+                                <!--<a href="single.html" class="dropdown-item">Detail Page</a>-->
+                                <a href="service" class="dropdown-item">What We Are</a>
+                                <a href="team" class="dropdown-item">Meet The Team</a>
+                                <a href="donate" class="dropdown-item">Donate/Give Now</a>
+                                <a href="volunteer" class="dropdown-item">Become A Volunteer</a>
+                            </div>
+                        </div>
+                        <a href="contact" class="nav-item nav-link">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Nav Bar End -->
+
+    
+    <div class="faq-container">
+        <h1>Frequently Asked Questions</h1>
+        <!-- Start of the Accordion -->
+        <div class="faq-item">
+            <button class="faq-question">
+                Who was Dada Mary Dorcas Sinaida Akatsa?
+                <span class="arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Answer: Mummy Mary Sinaida Dorcas was a revered spiritual leader, prophetess, and founder of the Jerusalem Church of Christ. She rose from humble beginnings, working as a maid, to becoming a beacon of faith and hope for millions. Known for her no-nonsense adherence to biblical teachings, she fearlessly spoke the truth, healing the sick, helping the poor, and spreading God’s word with unwavering conviction.
+                    Affectionately called "Mummy" or "Dada Mary" by her followers, she was celebrated for her powerful preaching, prophetic gifts, and her ability to connect deeply with those in need. Her ministry, which began in the late 1980s, flourished into a movement that touched lives far beyond her community in Kawangware.
+                    Mary Sinaida Dorcus will forever be remembered not just as a church leader but as a transformative figure whose life was a testimony of faith in action. Though she is no longer with us, her legacy and the spiritual foundation she built continue to inspire and guide countless beliefs.
+                </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                What are the church’s beliefs?
+                <span class="arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    The Jerusalem Church of Christ is rooted in unwavering faith in the Bible as the inspired Word of God. Our beliefs are centered on:
+                    <br>i. The Authority of Scripture
+                    <br>We believe in the Bible as the ultimate guide for faith and life, following its teachings word for word without compromise.
+                    <br>ii. Salvation Through Christ
+                    <br>Salvation is a gift from God, granted through faith in Jesus Christ as Lord and Savior.
+                    <br>iii. The Power of Prayer
+                    <br>Prayer is a cornerstone of our faith, connecting us to God’s grace, healing, and guidance.
+                    <br>iv. The Holy Spirit
+                    <br>We believe in the power and presence of the Holy Spirit to guide, empower, and comfort believers.
+                    <br>v. Compassion and Service
+                    <br>Inspired by Mummy Mary Sinaida Dorcus’ legacy, we are committed to helping the poor, the sick, and the marginalized as a demonstration of God’s love.
+                    <br>vi. Faith in Action
+                    <br>Our faith is not just a belief but a way of life. We strive to live in obedience to God’s word, reflecting His love and truth in all we do.
+                    <br>The Jerusalem Church of Christ welcomes everyone who seeks to grow spiritually, live faithfully, and experience the transformative power of God’s word.
+                </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                What makes the Jerusalem Church of Christ unique?
+                <span class="arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    The Jerusalem Church of Christ stands out as a beacon of unwavering faith and practical Christianity. Its uniqueness is rooted in:
+                    <br>i. Founding Legacy:
+                    <br>The church was founded in the late 1980s by Mummy Mary Sinaida Dorcus, a visionary leader who started her ministry while working as a maid. Her journey of faith and dedication inspired millions, making her a symbol of hope and perseverance.
+                    <br>ii. No-Nonsense Approach to Scripture:
+                    <br>Unlike many mainstream churches, the Jerusalem Church of Christ strictly adheres to the Bible's teachings without sugar coating or compromising the truth. This straightforward approach has drawn believers seeking authentic guidance.
+                    <br>iii. Focus on Healing and Deliverance:
+                    <br>The church is known for its emphasis on spiritual healing, prophetic revelations, and deliverance, offering hope and restoration to those in need.
+                    <br>iv. Community-Centered Ministry:
+                    <br>Inspired by Mummy Mary’s compassion, the church actively supports the poor, the sick, and the marginalized, ensuring faith is lived out through service and love.
+                    <br>v. Vibrant Worship and Fellowship:
+                    <br>The church fosters a strong sense of community through dynamic worship, uplifting prayers, and powerful preaching that resonates with people from all walks of life.
+                    <br>vi. A Legacy of Transformation:
+                    <br>Over the decades, the church has impacted millions of lives, not just spiritually but emotionally and socially, inspiring members to live out their faith in practical and meaningful ways.
+                    <br>The Jerusalem Church of Christ is more than a place of worship; it is a movement of faith, hope, and love that continues to touch hearts and transform lives.
+                </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                Where is the Jerusalem Church of Christ located?
+                <span class="arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    The church is located in Kawangware 56, Nairobi, Kenya. It was Mary Sinaida mummy base of operations and the site where she held her famous services. There are other branches in western part of Kenya.
+                </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                Are services open to everyone?
+                <span class="arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Yes, the Jerusalem Church of Christ welcomes everyone with open arms! Our services are inclusive and open to people from all walks of life, regardless of religion, background, age, or circumstance.
+                    Whether you are seeking spiritual guidance, healing, a place of worship, or simply a community to connect with, you are welcome to join us. We believe in the love of Christ as a unifying force, and we strive to create an environment where everyone feels embraced and inspired. Come as you are and experience the transformative power of faith, fellowship, and God’s word.
+                </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                What was Mary’s Mummy Sinaida role in the community?
+                <span class="arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Mary Sinaida Dorcus was more than just a spiritual leader; she was a cornerstone of her community. Her role extended beyond the pulpit, as she dedicated her life to uplifting those in need and serving as a source of hope and guidance.
+                    <br>i. Spiritual Leader:
+                    <br>As the founder of the Jerusalem Church of Christ, she provided a place of worship, healing, and deliverance for countless individuals. Her teachings, rooted in uncompromising biblical truths, inspired faith and transformation.
+                    <br>ii. Advocate for the Poor and Marginalized:
+                    <br>Mary Sinaida tirelessly worked to support the less fortunate, providing food, financial assistance, and emotional support to those in dire situations. Her compassion and generosity made her a beloved figure among the needy.
+                    <br>iii. Healer and Comforter:
+                    <br>Known for her powerful prayers and spiritual gifts, she brought healing and deliverance to many suffering from illness, despair, and spiritual struggles.
+                    <br>iv. Mentor and Guide:
+                    <br>She mentored individuals, encouraging them to lead lives of integrity, faith, and service. Her personal story of rising from humble beginnings to lead a global ministry was a source of inspiration.
+                    <br>v. Unifier:
+                    <br>Mary Sinaida was a unifying force, bringing people together regardless of their backgrounds. Her church became a family for many, fostering a sense of belonging and community.
+                    <br>Mary Sinaida’s role in the community was one of love, service, and unwavering faith. Her legacy continues to inspire and guide those she touched throughout her lifetime.
+                </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                Does the church offer online services or livestreams?
+                <span class="arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Plans are in place to begin streaming sermons and hosting virtual services, building on mummy Mary Sinaida’s vision of inclusivity.
+                </p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">
+                What languages are spoken during services?
+                <span class="arrow">&#9660;</span>
+            </button>
+            <div class="faq-answer">
+                <p>
+                    Services are primarily conducted in English and Swahili, with occasional translations into local dialects like Luhya, Kikuyu, Luo, Kisii, etc.
+                </p>
+            </div>
+        </div>
+    </div>
+      <!-- Footer Start -->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-contact">
+                            <h2>Our Head Office</h2>
+                            <p><i class="fa fa-map-marker-alt"></i>Kawangware 56, Nairobi, Kenya</p>
+                            <p><i class="fa fa-phone-alt"></i>+254 740 875 071</p>
+                            <p><i class="fa fa-envelope"></i>jerusalemu.56@gmail.com</p>
+                            <div class="footer-social">
+                                <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-custom" href="https://www.youtube.com/@JERUSALEMCHURCHKAWANGWARE56"><i class="fab fa-youtube"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-link">
+                            <h2>Popular Links</h2>
+                            <a href="">About Us</a>
+                            <a href="">Contact Us</a>
+                            <a href="">Popular Ministries</a>
+                            <a href="">Upcoming Events</a>
+                            <a href="">Latest Blog</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-link">
+                            <h2>Useful Links</h2>
+                            <a href="">Terms of use</a>
+                            <a href="">Privacy policy</a>
+                            <a href="">Cookies</a>
+                            <a href="">Help</a>
+                            <a href="">FQAs</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <div class="footer-newsletter">
+                            <h2>Newsletter</h2>
+                            <form>
+                                <input class="form-control" placeholder="Email goes here">
+                                <button class="btn btn-custom">Submit</button>
+                                <label>Don't worry, we don't spam!</label>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container copyright">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p>&copy; <a href="">Jerusalem Church of Christ 56</a>, All Right Reserved.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p>Designed By <a href="">Veronicah Anzimbu</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+    <!-- Link to the external JavaScript file -->
+    <script>
+// Select all question buttons
+const faqQuestions = document.querySelectorAll('.faq-question');
+
+// Loop through each question button
+faqQuestions.forEach(question => {
+    // Add a click event listener to each question
+    question.addEventListener('click', () => {
+        // Close any other open answers except the one clicked
+        faqQuestions.forEach(item => {
+            if (item !== question) {
+                item.classList.remove('active'); // Remove 'active' class to reset arrow rotation
+                item.nextElementSibling.style.maxHeight = null; // Collapse the answer
+            }
+        });
+
+        // Toggle 'active' class on the clicked question to rotate the arrow
+        question.classList.toggle('active');
+
+        // Select the corresponding answer div
+        const answer = question.nextElementSibling;
+
+        // Check if the answer is already open
+        if (answer.style.maxHeight) {
+            // If open, close it by resetting max-height
+            answer.style.maxHeight = null;
+        } else {
+            // If closed, set max-height to scrollHeight to expand it
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+    });
+});
+
+</script>
+    <!--<script src="faqqq.js"></script> -->
+</body>
+</html>
