@@ -117,76 +117,78 @@
         </div>
         <!-- Event End -->
 
- <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            const eventList = document.getElementById("event-list");
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const eventList = document.getElementById("event-list");
 
-            // Event details
-            const events = [
-                {
-                    title: "Sunday Church Service",
-                    description: "Join us for our Sunday worship and fellowship.",
-                    time: "9:00 AM - 12:00 PM",
-                    location: "Kawangware 56",
-                    day: 0, // Sunday
-                    image: "img/ev1.jpg"
-                },
-                {
-                    title: "Tuesday Bible Study",
-                    description: "Dive deeper into God's Word with our Bible study sessions.",
-                    time: "9:00 PM - 10:00 PM",
-                    location: "Kawangware 56",
-                    day: 2, // Tuesday
-                    image: "img/ev2.jpg"
-                }
-            ];
-
-            // Function to calculate the next date for a specific day of the week
-            function getNextDayOfWeek(dayOfWeek) {
-                const today = new Date();
-                const daysToAdd = (dayOfWeek - today.getDay() + 7) % 7;
-                const nextDate = new Date(today);
-                nextDate.setDate(today.getDate() + daysToAdd);
-                return nextDate;
+        // Event details
+        const events = [
+            {
+                title: "Sunday Church Service",
+                description: "Join us for our Sunday worship and fellowship.",
+                time: "9:00 AM - 12:00 PM",
+                location: "Kawangware 56",
+                day: 0, // Sunday
+                image: "img/ev1.jpg"
+            },
+            {
+                title: "Tuesday Bible Study",
+                description: "Dive deeper into God's Word with our Bible study sessions.",
+                time: "9:00 PM - 10:00 PM",
+                location: "Kawangware 56",
+                day: 2, // Tuesday
+                image: "img/ev2.jpg"
             }
+        ];
 
-            // Generate events for the upcoming Sunday and Tuesday
-            events.forEach(event => {
-                const nextEventDate = getNextDayOfWeek(event.day);
+        // Function to calculate the next date for a specific day of the week
+        function getNextDayOfWeek(dayOfWeek) {
+            const today = new Date();
+            const daysToAdd = (dayOfWeek - today.getDay() + 7) % 7;
+            const nextDate = new Date(today);
+            nextDate.setDate(today.getDate() + daysToAdd);
+            return nextDate;
+        }
 
-                // Format the date
-                const formattedDate = nextEventDate.toLocaleDateString("en-US", {
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric"
-                });
+        // Create events for the upcoming Sunday and Tuesday
+        events.forEach(event => {
+            const nextEventDate = getNextDayOfWeek(event.day);
 
-                // Create the event item
-                const eventItem = `
-                    <div class="col-lg-6">
-                        <div class="event-item">
-                            <img src="${event.image}" alt="Event Image">
-                            <div class="event-content">
-                                <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>${formattedDate}</p>
-                                    <p><i class="far fa-clock"></i>${event.time}</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>${event.location}</p>
-                                </div>
-                                <div class="event-text">
-                                    <h3>${event.title}</h3>
-                                    <p>${event.description}</p>
-                                    <a class="btn btn-custom" href="#">Join Now</a>
-                                </div>
+            // Format the date
+            const formattedDate = nextEventDate.toLocaleDateString("en-US", {
+                day: "2-digit",
+                month: "short",
+                year: "numeric"
+            });
+
+            // Create the event item
+            const eventItem = `
+                <div class="col-lg-6">
+                    <div class="event-item">
+                        <img src="${event.image}" alt="Event Image">
+                        <div class="event-content">
+                            <div class="event-meta">
+                                <p><i class="fa fa-calendar-alt"></i>${formattedDate}</p>
+                                <p><i class="far fa-clock"></i>${event.time}</p>
+                                <p><i class="fa fa-map-marker-alt"></i>${event.location}</p>
+                            </div>
+                            <div class="event-text">
+                                <h3>${event.title}</h3>
+                                <p>${event.description}</p>
+                                <a class="btn btn-custom" href="#">Join Now</a>
                             </div>
                         </div>
                     </div>
-                `;
+                </div>
+            `;
 
-                // Append the event item to the list
-                eventList.innerHTML += eventItem;
-            });
+            // Append the event item to the list
+            eventList.innerHTML += eventItem;
         });
-    </script>
+    });
+</script>
+
+        
         <!-- Footer Start -->
         <div class="footer">
             <div class="container">
