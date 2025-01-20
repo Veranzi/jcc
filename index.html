@@ -499,6 +499,9 @@
                         <div class="control-group">
                             <input type="email" id="email" class="form-control" placeholder="Email" required="required" />
                         </div>
+                        <div class="control-group">
+                            <input type="tel" id="phone" class="form-control" placeholder="Phone Number" required="required" />
+                        </div>
                         <div class="btn-group btn-group-toggle" data-toggle="buttons">
                             <label class="btn btn-custom active">
                                 <input type="radio" name="options" value="100" checked> Ksh 100
@@ -533,19 +536,23 @@
         // Get form data
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
         const amount = document.querySelector('input[name="options"]:checked').value;
 
         // Basic validation
-        if (name === '' || email === '') {
+        if (name === '' || email === '' || phone === '') {
             alert('Please fill in all required fields.');
             return;
         }
 
+        // Send SMS with the donation amount (replace with actual backend integration)
+        sendSMS(phone, amount);
+
         // For now, simulate a successful donation submission
-        // You can replace this with an AJAX call to your server to process the donation.
         console.log(`Donation Details:
             Name: ${name},
             Email: ${email},
+            Phone: ${phone},
             Donation Amount: Ksh ${amount}`);
 
         // Show a thank you message
@@ -554,6 +561,21 @@
         // Optionally, clear the form fields after submission
         document.getElementById('donateForm').reset();
     });
+
+    // Function to simulate sending SMS (should be done via server-side)
+    function sendSMS(phone, amount) {
+        // Here we simulate sending an SMS
+        console.log(`Sending SMS to ${phone}: You have donated Ksh ${amount}`);
+
+        // You would replace this with an AJAX call to your server which integrates with a service like Twilio
+        // Example (pseudo-code):
+        /*
+        $.post("/send_sms", { phone: phone, message: `You have donated Ksh ${amount}` })
+            .done(function(response) {
+                console.log(response);
+            });
+        */
+    }
 </script>
 
         
