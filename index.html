@@ -495,7 +495,7 @@
         
         
         <!-- Event Start -->
-       <!-- Event Start -->
+<!-- Event Start -->
 <div class="event">
     <div class="container">
         <div class="section-header text-center">
@@ -538,13 +538,14 @@
         // Function to calculate the next date for a specific day of the week
         function getNextDayOfWeek(dayOfWeek) {
             const today = new Date();
-            const daysToAdd = (dayOfWeek - today.getDay() + 7) % 7;
+            const currentDay = today.getDay();
+            const daysToAdd = (dayOfWeek - currentDay + 7) % 7;
             const nextDate = new Date(today);
             nextDate.setDate(today.getDate() + daysToAdd);
             return nextDate;
         }
 
-        // Create events dynamically
+        // Dynamically generate events
         events.forEach(event => {
             const nextEventDate = getNextDayOfWeek(event.day);
 
