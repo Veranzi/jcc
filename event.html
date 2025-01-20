@@ -74,7 +74,6 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu">
-                                <!-- <a href="single.html" class="dropdown-item">Detail Page</a>-->
                                 <a href="service.html" class="dropdown-item">What We Do</a>
                                 <a href="team.html" class="dropdown-item">Meet The Team</a>
                                 <a href="donate.html" class="dropdown-item">Donate Now</a>
@@ -104,92 +103,90 @@
         </div>
         <!-- Page Header End -->
 
-<!-- Event Start -->
-<div class="event">
-    <div class="container">
-        <div class="section-header text-center">
-            <p>Upcoming Events</p>
-            <h2>Be ready for our upcoming church events</h2>
+        <!-- Event Start -->
+        <div class="event">
+            <div class="container">
+                <div class="section-header text-center">
+                    <p>Upcoming Events</p>
+                    <h2>Be ready for our upcoming church events</h2>
+                </div>
+                <div class="row" id="event-list">
+                    <!-- Dynamic events will be injected here -->
+                </div>
+            </div>
         </div>
-        <div class="row" id="event-list">
-            <!-- Dynamic events will be injected here -->
-        </div>
-    </div>
-</div>
-<!-- Event End -->
+        <!-- Event End -->
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const eventList = document.getElementById("event-list");
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const eventList = document.getElementById("event-list");
 
-        // Event details
-        const events = [
-            {
-                title: "Sunday Church Service",
-                description: "Join us for our Sunday worship and fellowship.",
-                time: "9:00 AM - 12:00 PM",
-                location: "Kawangware 56",
-                day: 0, // Sunday
-                image: "img/ev1.jpg"
-            },
-            {
-                title: "Tuesday Bible Study",
-                description: "Dive deeper into God's Word with our Bible study sessions.",
-                time: "9:00 PM - 10:00 PM",
-                location: "Kawangware 56",
-                day: 2, // Tuesday
-                image: "img/ev2.jpg"
-            }
-        ];
+                // Event details
+                const events = [
+                    {
+                        title: "Sunday Church Service",
+                        description: "Join us for our Sunday worship and fellowship.",
+                        time: "9:00 AM - 12:00 PM",
+                        location: "Kawangware 56",
+                        day: 0, // Sunday
+                        image: "img/ev1.jpg"
+                    },
+                    {
+                        title: "Tuesday Bible Study",
+                        description: "Dive deeper into God's Word with our Bible study sessions.",
+                        time: "9:00 PM - 10:00 PM",
+                        location: "Kawangware 56",
+                        day: 2, // Tuesday
+                        image: "img/ev2.jpg"
+                    }
+                ];
 
-        // Generate events for the next few weeks
-        const today = new Date();
-        const maxWeeks = 4; // Number of weeks to generate events
-        const msInDay = 24 * 60 * 60 * 1000;
+                // Generate events for the next few weeks
+                const today = new Date();
+                const maxWeeks = 4; // Number of weeks to generate events
+                const msInDay = 24 * 60 * 60 * 1000;
 
-        for (let week = 0; week < maxWeeks; week++) {
-            for (const event of events) {
-                // Calculate the next event date
-                const nextEventDate = new Date(today.getTime() + week * 7 * msInDay);
-                const daysToNextEvent = (event.day - nextEventDate.getDay() + 7) % 7;
-                nextEventDate.setDate(nextEventDate.getDate() + daysToNextEvent);
+                for (let week = 0; week < maxWeeks; week++) {
+                    for (const event of events) {
+                        // Calculate the next event date
+                        const nextEventDate = new Date(today.getTime() + week * 7 * msInDay);
+                        const daysToNextEvent = (event.day - nextEventDate.getDay() + 7) % 7;
+                        nextEventDate.setDate(nextEventDate.getDate() + daysToNextEvent);
 
-                // Format the date
-                const formattedDate = nextEventDate.toLocaleDateString("en-US", {
-                    day: "2-digit",
-                    month: "short",
-                    year: "numeric"
-                });
+                        // Format the date
+                        const formattedDate = nextEventDate.toLocaleDateString("en-US", {
+                            day: "2-digit",
+                            month: "short",
+                            year: "numeric"
+                        });
 
-                // Create the event item
-                const eventItem = `
-                    <div class="col-lg-6">
-                        <div class="event-item">
-                            <img src="${event.image}" alt="Image">
-                            <div class="event-content">
-                                <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>${formattedDate}</p>
-                                    <p><i class="far fa-clock"></i>${event.time}</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>${event.location}</p>
-                                </div>
-                                <div class="event-text">
-                                    <h3>${event.title}</h3>
-                                    <p>${event.description}</p>
-                                    <a class="btn btn-custom" href="">Join Now</a>
+                        // Create the event item
+                        const eventItem = `
+                            <div class="col-lg-6">
+                                <div class="event-item">
+                                    <img src="${event.image}" alt="Image">
+                                    <div class="event-content">
+                                        <div class="event-meta">
+                                            <p><i class="fa fa-calendar-alt"></i>${formattedDate}</p>
+                                            <p><i class="far fa-clock"></i>${event.time}</p>
+                                            <p><i class="fa fa-map-marker-alt"></i>${event.location}</p>
+                                        </div>
+                                        <div class="event-text">
+                                            <h3>${event.title}</h3>
+                                            <p>${event.description}</p>
+                                            <a class="btn btn-custom" href="">Join Now</a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                `;
+                        `;
 
-                // Append the event item to the list
-                eventList.innerHTML += eventItem;
-            }
-        }
-    });
-</script>
-
-        <!-- Event End -->
+                        // Append the event item to the list
+                        eventList.innerHTML += eventItem;
+                    }
+                }
+            });
+        </script>
 
         <!-- Footer Start -->
         <div class="footer">
@@ -242,41 +239,15 @@
                     </div>
                 </div>
             </div>
-            <div class="container copyright">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>&copy; <a href="">Jerusalem Church of Christ 56</a>, All Right Reserved.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>Designed By <a href="">Veranzi</a></p>
-                    </div>
-                </div>
-            </div>
         </div>
         <!-- Footer End -->
 
-        <!-- Back to top button -->
-        <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
-
-        <!-- Pre Loader -->
-        <div id="loader" class="show">
-            <div class="loader"></div>
-        </div>
-
         <!-- JavaScript Libraries -->
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <script src="lib/easing/easing.min.js"></script>
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/parallax/parallax.min.js"></script>
-
-        <!-- Contact Javascript File -->
-        <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>
-
-        <!-- Template Javascript -->
         <script src="js/main.js"></script>
     </body>
 </html>
