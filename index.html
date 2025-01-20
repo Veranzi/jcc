@@ -105,22 +105,23 @@
 <div class="carousel">
     <div class="container-fluid">
         <div class="owl-carousel">
-            <!-- Carousel Item 1 -->
-            <div class="carousel-item">
-                <div class="carousel-img">
-                    <img src="img/wel11.jpg" alt="Image">
-                </div>
-                <div class="carousel-text">
-                    <h1>Welcome to Jerusalem Church of Christ</h1>
-                    <p>
-                        Where healing, compassion, and transformation meet.
-                    </p>
-                    <div class="carousel-btn">
-                        <a class="btn btn-custom" href="https://maps.app.goo.gl/oYRcvc8LPfcinsgd7">Location</a>
-                        <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/SPFgaHAM8CU?si=ryOpUVdjzIf_tnpv" data-target="#videoModal">Watch Video</a>
-                    </div>
-                </div>
-            </div>
+     <!-- Carousel Item 1 -->
+<div class="carousel-item">
+    <div class="carousel-img">
+        <img src="img/wel11.jpg" alt="Image">
+    </div>
+    <div class="carousel-text">
+        <h1>Welcome to Jerusalem Church of Christ</h1>
+        <p>
+            Where healing, compassion, and transformation meet.
+        </p>
+        <div class="carousel-btn">
+            <a class="btn btn-custom" href="https://maps.app.goo.gl/oYRcvc8LPfcinsgd7">Location</a>
+            <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/SPFgaHAM8CU?autoplay=1" data-target="#videoModal">Watch Video</a>
+        </div>
+    </div>
+</div>
+
             
             <!-- Carousel Item 2 -->
             <div class="carousel-item">
@@ -190,16 +191,6 @@
     // Clear video source when the modal is closed to stop playback
     $('#videoModal').on('hide.bs.modal', function () {
         $(this).find('#videoPlayer').attr('src', ''); // Reset video source to stop playback
-    });
-
-    // Initialize Owl Carousel (if using Owl Carousel for the first time)
-    $(document).ready(function(){
-        $(".owl-carousel").owlCarousel({
-            loop: true,
-            margin: 10,
-            nav: true,
-            items: 1
-        });
     });
 </script>
 
