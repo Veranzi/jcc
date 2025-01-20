@@ -785,7 +785,7 @@ a:focus {
 .donate {
     position: relative;
     width: 100%;
-    margin: 45px 0;
+    margin: 40px 0;
     background: rgba(0, 0, 0, .5);
 }
 
@@ -794,7 +794,7 @@ a:focus {
 }
 
 .container .donate {
-    margin: 90px 0;
+    margin: 80px 0;
 }
 
 .container .donate .donate-content {
