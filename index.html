@@ -475,54 +475,87 @@
         </div>
         <!-- Causes End -->
         
-        
-        <!-- Donate Start -->
-        <div class="donate" data-parallax="scroll" data-image-src="img/donate.jpg">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-7">
-                        <div class="donate-content">
-                            <div class="section-header">
-                                <p> Give Now</p>
-                                <h2>Psalms 37:21 : "The wicked borrow and do not repay, </h2>
-                            </div>
-                            <div class="donate-text">
-                                <p>
-                                    but the righteous give generously".
-                                </p>
-                            </div>
-                        </div>
+<!-- Donate Start -->
+<div class="donate" data-parallax="scroll" data-image-src="img/donate.jpg">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="donate-content">
+                    <div class="section-header">
+                        <p> Give Now</p>
+                        <h2>Psalms 37:21 : "The wicked borrow and do not repay, </h2>
                     </div>
-                    <div class="col-lg-5">
-                        <div class="donate-form">
-                            <form>
-                                <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="Name" required="required" />
-                                </div>
-                                <div class="control-group">
-                                    <input type="email" class="form-control" placeholder="Email" required="required" />
-                                </div>
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-custom active">
-                                        <input type="radio" name="options" checked> Ksh 100
-                                    </label>
-                                    <label class="btn btn-custom">
-                                        <input type="radio" name="options"> Ksh 200
-                                    </label>
-                                    <label class="btn btn-custom">
-                                        <input type="radio" name="options"> Ksh 300
-                                    </label>
-                                </div>
-                                <div>
-                                    <button class="btn btn-custom" type="submit">Give</button>
-                                </div>
-                            </form>
+                    <div class="donate-text">
+                        <p> but the righteous give generously". </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="donate-form">
+                    <form id="donateForm">
+                        <div class="control-group">
+                            <input type="text" id="name" class="form-control" placeholder="Name" required="required" />
                         </div>
+                        <div class="control-group">
+                            <input type="email" id="email" class="form-control" placeholder="Email" required="required" />
+                        </div>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                            <label class="btn btn-custom active">
+                                <input type="radio" name="options" value="100" checked> Ksh 100
+                            </label>
+                            <label class="btn btn-custom">
+                                <input type="radio" name="options" value="200"> Ksh 200
+                            </label>
+                            <label class="btn btn-custom">
+                                <input type="radio" name="options" value="300"> Ksh 300
+                            </label>
+                        </div>
+                        <div>
+                            <button class="btn btn-custom" type="submit">Give</button>
+                        </div>
+                    </form>
+                    <div id="responseMessage" style="display:none;">
+                        <p>Thank you for your generous donation!</p>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Donate End -->
+    </div>
+</div>
+<!-- Donate End -->
+
+<!-- JavaScript to Handle the Form -->
+<script>
+    // Handle the donation form submission
+    document.getElementById('donateForm').addEventListener('submit', function(event) {
+        event.preventDefault();  // Prevent form from reloading the page
+
+        // Get form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const amount = document.querySelector('input[name="options"]:checked').value;
+
+        // Basic validation
+        if (name === '' || email === '') {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        // For now, simulate a successful donation submission
+        // You can replace this with an AJAX call to your server to process the donation.
+        console.log(`Donation Details:
+            Name: ${name},
+            Email: ${email},
+            Donation Amount: Ksh ${amount}`);
+
+        // Show a thank you message
+        document.getElementById('responseMessage').style.display = 'block';
+
+        // Optionally, clear the form fields after submission
+        document.getElementById('donateForm').reset();
+    });
+</script>
+
         
         
         <!-- Event Start -->
