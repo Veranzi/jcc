@@ -180,7 +180,18 @@
     $('#videoModal').on('hide.bs.modal', function () {
         $(this).find('#videoPlayer').attr('src', ''); // Reset video source to stop playback
     });
+
+    // Initialize Owl Carousel (if using Owl Carousel for the first time)
+    $(document).ready(function(){
+        $(".owl-carousel").owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            items: 1
+        });
+    });
 </script>
+
 
         <!-- About Start -->
         <div class="about">
