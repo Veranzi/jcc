@@ -103,12 +103,39 @@
                             <p>
                                 Where healing, compassion, and transformation meet.
                             </p>
-             <div class="carousel-btn">
+          <div class="carousel-btn">
     <a class="btn btn-custom" href="https://maps.app.goo.gl/oYRcvc8LPfcinsgd7">Location</a>
     <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/SPFgaHAM8CU?si=ryOpUVdjzIf_tnpv" data-target="#videoModal">Watch Video</a>
+</div>
 
-                        </div>
-                    </div>
+<!-- Modal for YouTube Video -->
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <iframe id="videoPlayer" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Set the video source when the modal is opened
+    $('#videoModal').on('show.bs.modal', function (e) {
+        const button = $(e.relatedTarget); // Button that triggered the modal
+        const videoSrc = button.data('src'); // Extract video source from data-src
+        $(this).find('#videoPlayer').attr('src', videoSrc); // Set iframe src to the video URL
+    });
+
+    // Clear video source when the modal is closed to stop playback
+    $('#videoModal').on('hide.bs.modal', function () {
+        $(this).find('#videoPlayer').attr('src', '');
+    });
+</script>
+
                     <div class="carousel-item">
                         <div class="carousel-img">
                             <img src="img/wel4.jpg" alt="Image">
