@@ -117,42 +117,42 @@
         </div>
         <!-- Event End -->
 
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const eventList = document.getElementById("event-list");
+ <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const eventList = document.getElementById("event-list");
 
-        // Event details
-        const events = [
-            {
-                title: "Sunday Church Service",
-                description: "Join us for our Sunday worship and fellowship.",
-                time: "9:00 AM - 12:00 PM",
-                location: "Kawangware 56",
-                day: 0, // Sunday
-                image: "img/ev1.jpg"
-            },
-            {
-                title: "Tuesday Bible Study",
-                description: "Dive deeper into God's Word with our Bible study sessions.",
-                time: "9:00 PM - 10:00 PM",
-                location: "Kawangware 56",
-                day: 2, // Tuesday
-                image: "img/ev2.jpg"
+            // Event details
+            const events = [
+                {
+                    title: "Sunday Church Service",
+                    description: "Join us for our Sunday worship and fellowship.",
+                    time: "9:00 AM - 12:00 PM",
+                    location: "Kawangware 56",
+                    day: 0, // Sunday
+                    image: "img/ev1.jpg"
+                },
+                {
+                    title: "Tuesday Bible Study",
+                    description: "Dive deeper into God's Word with our Bible study sessions.",
+                    time: "9:00 PM - 10:00 PM",
+                    location: "Kawangware 56",
+                    day: 2, // Tuesday
+                    image: "img/ev2.jpg"
+                }
+            ];
+
+            // Function to calculate the next date for a specific day of the week
+            function getNextDayOfWeek(dayOfWeek) {
+                const today = new Date();
+                const daysToAdd = (dayOfWeek - today.getDay() + 7) % 7;
+                const nextDate = new Date(today);
+                nextDate.setDate(today.getDate() + daysToAdd);
+                return nextDate;
             }
-        ];
 
-        // Generate events for the next few weeks
-        const today = new Date();
-        const maxWeeks = 4; // Number of weeks to generate events
-        const msInDay = 24 * 60 * 60 * 1000;
-
-        // Loop for each event
-        for (const event of events) {
-            for (let week = 0; week < maxWeeks; week++) {
-                // Calculate the next event date
-                const nextEventDate = new Date(today.getTime() + week * 7 * msInDay);
-                const daysToNextEvent = (event.day - nextEventDate.getDay() + 7) % 7;
-                nextEventDate.setDate(nextEventDate.getDate() + daysToNextEvent);
+            // Generate events for the upcoming Sunday and Tuesday
+            events.forEach(event => {
+                const nextEventDate = getNextDayOfWeek(event.day);
 
                 // Format the date
                 const formattedDate = nextEventDate.toLocaleDateString("en-US", {
@@ -165,7 +165,7 @@
                 const eventItem = `
                     <div class="col-lg-6">
                         <div class="event-item">
-                            <img src="${event.image}" alt="Image">
+                            <img src="${event.image}" alt="Event Image">
                             <div class="event-content">
                                 <div class="event-meta">
                                     <p><i class="fa fa-calendar-alt"></i>${formattedDate}</p>
@@ -175,7 +175,7 @@
                                 <div class="event-text">
                                     <h3>${event.title}</h3>
                                     <p>${event.description}</p>
-                                    <a class="btn btn-custom" href="">Join Now</a>
+                                    <a class="btn btn-custom" href="#">Join Now</a>
                                 </div>
                             </div>
                         </div>
@@ -184,11 +184,9 @@
 
                 // Append the event item to the list
                 eventList.innerHTML += eventItem;
-            }
-        }
-    });
-</script>
-
+            });
+        });
+    </script>
         <!-- Footer Start -->
         <div class="footer">
             <div class="container">
