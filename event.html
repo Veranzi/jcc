@@ -105,54 +105,90 @@
         <!-- Page Header End -->
 
 <!-- Event Start -->
-        <div class="event">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p>Upcoming Events</p>
-                    <h2>Be ready for our upcoming church events</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="event-item">
-                            <img src="img/ev1.jpg" alt="Image">
-                            <div class="event-content">
-                                <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>25-Dec-2024</p>
-                                    <p><i class="far fa-clock"></i>9:00 - 13:00</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>Kawangware 56</p>
-                                </div>
-                                <div class="event-text">
-                                    <h3>Christmas Celebration</h3>
-                                    <p>
-                                        Eating, dancing, rejoicing, preaching, interacting, praising and praying.
-                                    </p>
-                                    <a class="btn btn-custom" href="">Join Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="event-item">
-                            <img src="img/ev2.jpg" alt="Image">
-                            <div class="event-content">
-                                <div class="event-meta">
-                                    <p><i class="fa fa-calendar-alt"></i>1-Jan-2025</p>
-                                    <p><i class="far fa-clock"></i>9:00 - 13:00</p>
-                                    <p><i class="fa fa-map-marker-alt"></i>Kawangware 56</p>
-                                </div>
-                                <div class="event-text">
-                                    <h3>New year Celebration</h3>
-                                    <p>
-                                        Welcoming the new year "2025".
-                                    </p>
-                                    <a class="btn btn-custom" href="">Join Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<div class="event">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Upcoming Events</p>
+            <h2>Be ready for our upcoming church events</h2>
         </div>
+        <div class="row" id="event-list">
+            <!-- Dynamic events will be injected here -->
+        </div>
+    </div>
+</div>
+<!-- Event End -->
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const eventList = document.getElementById("event-list");
+
+        // Event details
+        const events = [
+            {
+                title: "Sunday Church Service",
+                description: "Join us for our Sunday worship and fellowship.",
+                time: "9:00 AM - 12:00 PM",
+                location: "Kawangware 56",
+                day: 0, // Sunday
+                image: "img/ev1.jpg"
+            },
+            {
+                title: "Tuesday Bible Study",
+                description: "Dive deeper into God's Word with our Bible study sessions.",
+                time: "9:00 PM - 10:00 PM",
+                location: "Kawangware 56",
+                day: 2, // Tuesday
+                image: "img/ev2.jpg"
+            }
+        ];
+
+        // Generate events for the next few weeks
+        const today = new Date();
+        const maxWeeks = 4; // Number of weeks to generate events
+        const msInDay = 24 * 60 * 60 * 1000;
+
+        for (let week = 0; week < maxWeeks; week++) {
+            for (const event of events) {
+                // Calculate the next event date
+                const nextEventDate = new Date(today.getTime() + week * 7 * msInDay);
+                const daysToNextEvent = (event.day - nextEventDate.getDay() + 7) % 7;
+                nextEventDate.setDate(nextEventDate.getDate() + daysToNextEvent);
+
+                // Format the date
+                const formattedDate = nextEventDate.toLocaleDateString("en-US", {
+                    day: "2-digit",
+                    month: "short",
+                    year: "numeric"
+                });
+
+                // Create the event item
+                const eventItem = `
+                    <div class="col-lg-6">
+                        <div class="event-item">
+                            <img src="${event.image}" alt="Image">
+                            <div class="event-content">
+                                <div class="event-meta">
+                                    <p><i class="fa fa-calendar-alt"></i>${formattedDate}</p>
+                                    <p><i class="far fa-clock"></i>${event.time}</p>
+                                    <p><i class="fa fa-map-marker-alt"></i>${event.location}</p>
+                                </div>
+                                <div class="event-text">
+                                    <h3>${event.title}</h3>
+                                    <p>${event.description}</p>
+                                    <a class="btn btn-custom" href="">Join Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                // Append the event item to the list
+                eventList.innerHTML += eventItem;
+            }
+        }
+    });
+</script>
+
         <!-- Event End -->
 
         <!-- Footer Start -->
