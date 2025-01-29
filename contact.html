@@ -19,6 +19,15 @@
         <link href="lib/animate/animate.min.css" rel="stylesheet">
         <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
+
+        <!-- Firebase SDK (8.x) -->
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+
+<!-- Firebase SDK Imports -->
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
+
         <!-- Template Stylesheet -->
         <link href="css/style.css" rel="stylesheet">
     </head>
@@ -32,21 +41,22 @@
                         <div class="top-bar-left">
                             <div class="text">
                                 <i class="fa fa-phone-alt"></i>
-                                <p>+254 740 875 071</p>
+                                <p>+254 112 747 946</p>
                             </div>
                             <div class="text">
                                 <i class="fa fa-envelope"></i>
-                                <p>jerusalemu.56@gmail.com</p>
+                                <p>info@jerusalemchurchofchrist.com</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="top-bar-right">
                             <div class="social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.x.com/@jerusalemc56"><i class="fab fa-twitter"></i></a>
+                                <a href="Https://fb.com/jerusalemc56"><i class="fab fa-facebook-f"></i></a>
                                 <a target="_blank" href="https://www.youtube.com/@JERUSALEMCHURCHKAWANGWARE56"><i class="fab fa-youtube"></i></a>
+                                <a href="https://www.instagram.com/jerusalemc56"><i class="fab fa-instagram"></i></a>
+                                <a href="https://www.tiktok.com/@jerusalemc56"><i class="fab fa-tiktok"></i></a>
                             </div>
                         </div>
                     </div>
@@ -58,34 +68,46 @@
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark">
             <div class="container-fluid">
-                <a href="index.html" class="navbar-brand">JCC</a>
+                <a href="index.html" class="navbar-brand">
+                    <img src="img/logo.png" alt="JCC Logo" class="logo">
+                </a>
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+            </div>
+
+            <style>
+                .logo {
+                    height: 100px; /* Adjust the height of the logo */
+                    width: auto;  /* Maintains the original aspect ratio of the image */
+                }
+            </style>
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
-                        <a href="index.html" class="nav-item nav-link">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="causes.html" class="nav-item nav-link">Ministries</a>
-                        <a href="event.html" class="nav-item nav-link">Events</a>
-                        <a href="blog.html" class="nav-item nav-link">Blog</a>
+                        <a href="/index" class="nav-item nav-link active">Home</a>
+                        <a href="/about" class="nav-item nav-link">About</a>
+                        <a href="/causes" class="nav-item nav-link">Ministries</a>
+                        <a href="/event" class="nav-item nav-link">Events</a>
+                        <a href="/blog" class="nav-item nav-link">Blog</a>
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu">
-                                <!-- <a href="single.html" class="dropdown-item">Detail Page</a>-->
-                                <a href="service.html" class="dropdown-item">What We Are</a>
-                                <a href="team.html" class="dropdown-item">Meet The Team</a>
-                                <a href="donate.html" class="dropdown-item">Donate/Give Now</a>
-                                <a href="volunteer.html" class="dropdown-item">Become A Volunteer</a>
+                                <!--<a href="single.html" class="dropdown-item">Detail Page</a>-->
+                                <a href="service" class="dropdown-item">What We Are</a>
+                                <a href="team" class="dropdown-item">Meet The Team</a>
+                                <a href="donate" class="dropdown-item">Donate/Give Now</a>
+                                <a href="volunteer" class="dropdown-item">Become A Volunteer</a>
                             </div>
                         </div>
-                        <a href="contact.html" class="nav-item nav-link active">Contact</a>
+                        <a href="contact" class="nav-item nav-link">Contact</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Nav Bar End -->
+
+
 
         <!-- Page Header Start -->
         <div class="page-header">
@@ -150,18 +172,19 @@
                         <div class="footer-contact">
                             <h2>Our Head Office</h2>
                             <p><i class="fa fa-map-marker-alt"></i>Kawangware 56, Nairobi, Kenya</p>
-                            <p><i class="fa fa-phone-alt"></i>+254 740 875 071</p>
-                            <p><i class="fa fa-envelope"></i>jerusalemu.56@gmail.com</p>
+                            <p><i class="fa fa-phone-alt"></i>c</p>
+                            <p><i class="fa fa-envelope"></i>info@jerusalemchurchofchrist.com</p>
                             <div class="footer-social">
-                                <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
+                                <a class="btn btn-custom" href="https://www.x.com/@jerusalemc56"><i class="fab fa-twitter"></i></a>
+                                <a class="btn btn-custom" href="Https://fb.com/jerusalemc56"><i class="fab fa-facebook-f"></i></a>
                                 <a class="btn btn-custom" href="https://www.youtube.com/@JERUSALEMCHURCHKAWANGWARE56"><i class="fab fa-youtube"></i></a>
-                                <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a class="btn btn-custom" href="https://www.instagram.com/jerusalemc56"><i class="fab fa-instagram"></i></a>
+                                <a class="btn btn-custom" href="https://www.tiktok.com/@jerusalemc56""><i class="fab fa-tiktok"></i></a>
+                                <a class="btn btn-custom" href="https://www.linkedin-in.com/@jerusalemc56"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>
-                <div class="col-lg-3 col-md-6">
+                    <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
                             <h2>Popular Links</h2>
                             <a href="/about">About Us</a>
@@ -194,16 +217,22 @@
                 </div>
             </div>
             <div class="container copyright">
-                <div class="row">
-                    <div class="col-md-6">
-                        <p>&copy; <a href="">Jerusalem Church of Christ 56</a>, All Right Reserved.</p>
-                    </div>
-                    <div class="col-md-6">
-                        <p>Designed By <a href="">Veranzi</a></p>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="row">
+    <div class="col-md-6">
+        <p>&copy; <a href="">Jerusalem Church of Christ 56</a>, <span id="year"></span>, All Rights Reserved.</p>
+    </div>
+    <div class="col-md-6">
+        <p>
+            Designed By <a href="">Veronicah Anzimbu</a> & Composed By <a href="">JCC Media Team</a>
+        </p>
+    </div>
+</div>
+
+<script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+
+
         <!-- Footer End -->
 
         <!-- Back to top button -->
@@ -225,9 +254,13 @@
 
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>
+        <script src="mail/contact2.js"></script>
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
+        <script src="js/main2.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
     </body>
 </html>

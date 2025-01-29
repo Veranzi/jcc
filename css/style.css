@@ -820,7 +820,7 @@ a:focus {
 }
 
 .donate .donate-form .control-group {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .donate .donate-form .form-control {
@@ -1057,6 +1057,10 @@ a:focus {
 /*******************************/
 /*********** Team CSS **********/
 /*******************************/
+.team .row {
+    display: flex;
+    justify-content: center; /* Center the row horizontally */
+}
 .team {
     position: relative;
     width: 100%;
