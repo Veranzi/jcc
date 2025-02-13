@@ -1,61 +1,66 @@
-
-  // Your web app's Firebase configuration
-  const firebaseConfig = {
-    apiKey: "AIzaSyB15WuzF1bcdahZgDWU5ZHWl29M8aCsor0",
-    authDomain: "jccvolunteer-70aa5.firebaseapp.com",
-    databaseURL: "https://jccvolunteer-70aa5-default-rtdb.firebaseio.com",
-    projectId: "jccvolunteer-70aa5",
-    storageBucket: "jccvolunteer-70aa5.firebasestorage.app",
-    messagingSenderId: "494165171848",
-    appId: "1:494165171848:web:1619d39b810b5d6f7f493d"
-  };
 // Initialize Firebase
 if (!firebase.apps.length) {
-    firebase.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
 } else {
-    firebase.app();
+  firebase.app(); // Use the existing app
 }
 
-// Reference to Firebase database
-const volunteerDB = firebase.database().ref("volunteer");
+// Reference to the Firebase Database for Volunteer data
+var volunteerDB = firebase.database().ref("volunteers");
 
-// Add event listener to the form
-document.getElementById("volunteerForm").addEventListener("submit", submitVolunteerForm);
+// Wait until the DOM is fully loaded
+document.addEventListener("DOMContentLoaded", function () {
+  // Add event listener to the Volunteer form
+  document.getElementById("volunteerForm").addEventListener("submit", submitVolunteerForm);
+});
 
-// Function to handle form submission
+// Function to submit the Volunteer form
 function submitVolunteerForm(e) {
-    e.preventDefault(); // Prevent default form submission
+  e.preventDefault(); // Prevent the default form submission
 
-    // Fetch input values
-    const name = getElementVal("volunteerName");
-    const email = getElementVal("volunteerEmail");
-    const message = getElementVal("volunteerMessage");
+  // Get form values for Volunteer form
+  var name = getElementVal("volunteerName");
+  var email = getElementVal("volunteerEmail");
+  var message = getElementVal("volunteerMessage");
 
-    // Debugging: Ensure values are fetched correctly
-    console.log("Form Values:", { name, email, message });
+  // Save Volunteer info to Firebase
+  saveVolunteerInfo(name, email, message);
 
-    // Validate input fields
-    if (name && email && message) {
-        saveVolunteerInfo(name, email, message); // Save data to Firebase
-        alert("Thank you for becoming a volunteer! Your information has been saved.");
-        document.getElementById("volunteerForm").reset(); // Reset the form
-    } else {
-        alert("Please fill out all fields.");
-    }
+  // Show success message for Volunteer form
+  document.getElementById("volunteerSuccess").innerHTML =
+      "<p class='text-success'>Thank you for volunteering!</p>";
+
+  // Reset the form
+  document.getElementById("volunteerForm").reset();
+
+  // Remove the success message after 3 seconds
+  setTimeout(() => {
+      document.getElementById("volunteerSuccess").innerHTML = "";
+  }, 3000);
 }
 
-// Function to save volunteer information to Firebase
+// Function to save Volunteer data to Firebase
 const saveVolunteerInfo = (name, email, message) => {
-    const newVolunteerEntry = volunteerDB.push();
-    newVolunteerEntry
-        .set({
-            name: name,
-            email: email,
-            message: message,
-        })
-        .then(() => console.log("Volunteer information saved successfully"))
-        .catch((error) => console.error("Error saving volunteer information:", error));
+  var newVolunteerForm = volunteerDB.push();
+  newVolunteerForm
+    .set({
+      name: name,
+      email: email,
+      message: message,
+    })
+    .then(() => console.log("Volunteer data saved successfully"))
+    .catch((error) => console.error("Error saving Volunteer data:", error));
 };
 
-// Function to fetch input values
-const getElementVal = (id) => document.getElementById(id).value;
+// Function to get element values by ID
+const getElementVal = (id) => {
+  const element = document.getElementById(id);
+  if (element) {
+    const value = element.value;
+    console.log(`Element with id ${id} has value:`, value); // Debugging output
+    return value;
+  } else {
+    console.log(`Element with id ${id} not found`); // If the element is not found
+    return "";
+  }
+};

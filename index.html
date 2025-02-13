@@ -32,9 +32,6 @@
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
 
-<!-- Firebase SDK Imports -->
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
 
 <!-- Bootstrap CSS -->
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -945,72 +942,98 @@
         <!-- Contact End -->
 
 
-        <!-- Blog Start -->
-        <div class="blog">
-            <div class="container">
-                <div class="section-header text-center">
-                    <p>News feeds</p>
-                    <h2>Latest blogs & articles directly from our News feeds</h2>
+<!-- Blog Start -->
+<div class="blog">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>News feeds</p>
+            <h2>Latest blogs & articles directly from our News feeds</h2>
+        </div>
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="img/bl4.jpg" alt="Image">
+                    </div>
+                    <div class="blog-text">
+                        <h3><a href="#">CHURCH BELIEFS</a></h3>
+                        <p>
+                            The Church is both a spiritual and visible communion of believers who share common beliefs and practices and strive to continue the mission of Christ on earth. It is hence a collective body of Christians adhering to one particular opinion or form of worship and interested in both the spiritual and material needs of humanity.
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-user"></i><a href="">Veranzi</a></p>
+                        <p><i class="fa fa-comments"></i><a href="" id="commentsCount_blog1">2 Comments</a></p>
+                    </div>
+
+                    <!-- Comment Section -->
+                    <div class="comments-section">
+                        <ul id="commentsList_blog1"></ul>
+                        <form id="commentForm_blog1">
+                            <textarea id="commentText_blog1" placeholder="Add a comment" required></textarea>
+                            <button type="submit">Post Comment</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/bl4.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="#">CHURCH BELIEFS</a></h3>
-                                <p>
-                                    The Church is both a spiritual and visible communion of believers who share common beliefs and practices and strife to continue the mission of Christ on earth. It is hence a collective body of Christians adhering to one particular opinion or form of worship and interested in both the spiritual and material needs of humanity.
+            </div>
 
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Veranzi</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">2 Comments</a></p>
-                            </div>
-                        </div>
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="img/bl3.jpg" alt="Image">
                     </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/bl3.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="#">DISCIPLINE </a></h3>
-                                <p>
-                                    Virtues of kindness, truthfulness, obedience, diligence and bravery among others were taught. Respect to elders, sacred places, and to gods was encouraged43. On the contrary, vices such as laziness, theft, jealousy, meanness and witchcraft among others were discouraged. Discipline is on of the virtues that will forever remain imprinted in the members of the church especially to the Sunday school and youths. Not leaving behind the adults as well for they too experienced the installation of discipline by Mummy Mary Sinaida Dorcus.
-                                    The fact that JCC members are not expected to intermarry
+                    <div class="blog-text">
+                        <h3><a href="#">DISCIPLINE</a></h3>
+                        <p>
+                            Virtues of kindness, truthfulness, obedience, diligence, and bravery among others were taught. Respect to elders, sacred places, and to gods was encouraged. On the contrary, vices such as laziness, theft, jealousy, meanness, and witchcraft among others were discouraged. Discipline is one of the virtues that will forever remain imprinted in the members of the church, especially for the Sunday school and youths.
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-user"></i><a href="">Veranzi</a></p>
+                        <p><i class="fa fa-comments"></i><a href="" id="commentsCount_blog2">1 Comment</a></p>
+                    </div>
 
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Veranzi</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">1 Comment</a></p>
-                            </div>
-                        </div>
+                    <!-- Comment Section -->
+                    <div class="comments-section">
+                        <ul id="commentsList_blog2"></ul>
+                        <form id="commentForm_blog2">
+                            <textarea id="commentText_blog2" placeholder="Add a comment" required></textarea>
+                            <button type="submit">Post Comment</button>
+                        </form>
                     </div>
-                    <div class="col-lg-4">
-                        <div class="blog-item">
-                            <div class="blog-img">
-                                <img src="img/test2.jpg" alt="Image">
-                            </div>
-                            <div class="blog-text">
-                                <h3><a href="#">HEALING </a></h3>
-                                <p>
-                                    The majority of JCC members found their way into this Church due to their various physical, social and mental ailments. Therefore, healing and revelation are the major attraction oi people to this Church. The majority of JCC members are the unregistered who consider this Church as a healing and revelatory institute.
-                                </p>
-                            </div>
-                            <div class="blog-meta">
-                                <p><i class="fa fa-user"></i><a href="">Veranzi</a></p>
-                                <p><i class="fa fa-comments"></i><a href="">3 Comments</a></p>
-                            </div>
-                        </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="img/test2.jpg" alt="Image">
+                    </div>
+                    <div class="blog-text">
+                        <h3><a href="#">HEALING</a></h3>
+                        <p>
+                            The majority of JCC members found their way into this Church due to their various physical, social, and mental ailments. Therefore, healing and revelation are the major attraction for people to this Church. The majority of JCC members are the unregistered who consider this Church as a healing and revelatory institute.
+                        </p>
+                    </div>
+                    <div class="blog-meta">
+                        <p><i class="fa fa-user"></i><a href="">Veranzi</a></p>
+                        <p><i class="fa fa-comments"></i><a href="" id="commentsCount_blog3">3 Comments</a></p>
+                    </div>
+
+                    <!-- Comment Section -->
+                    <div class="comments-section">
+                        <ul id="commentsList_blog3"></ul>
+                        <form id="commentForm_blog3">
+                            <textarea id="commentText_blog3" placeholder="Add a comment" required></textarea>
+                            <button type="submit">Post Comment</button>
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Blog End -->
+    </div>
+</div>
+<!-- Blog End -->
 
 
         <!-- Footer Start -->
@@ -1102,12 +1125,15 @@
         <script src="lib/parallax/parallax.min.js"></script>
         <!-- Contact Javascript File -->
         <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact3.js"></script>
+        <!--<script src="mail/contact3.js"></script> -->
+        <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js"></script>
 
         <!-- Template Javascript -->
         <script src="js/main.js"></script>
         <script src="js/main2.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/7.14.1-0/firebase.js"></script>
+        <script src="js/main3.js"></script>
+        <script src="js/secret.js"></script>
+
     </body>
 </html>
